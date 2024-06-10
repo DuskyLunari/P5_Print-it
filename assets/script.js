@@ -17,14 +17,17 @@ const slides = [
 	}
 ]
 
+// variables du DOM
 const left = document.querySelector(".arrow_left");
 const right = document.querySelector(".arrow_right");
 const dotsContainer = document.querySelector(".dots");
 const img = document.querySelector(".banner-img");
 const txt = document.querySelector(".img-txt");
 
+// variable pour gérer la position du slider
 let slidePosition = 0;
 
+// Creation des divs dot selon la taille de ta table et affectation de dot selected au premier élement de la table à l'initialisation
 for (let i = 0; i < slides.length; i++) {
 	const dot = document.createElement("div")
 	dot.addEventListener("click", () => {
@@ -40,8 +43,7 @@ for (let i = 0; i < slides.length; i++) {
 	dotsContainer.append(dot)
 }
 
-const dots = document.querySelectorAll(".dot");
-
+// Comportement de la flèche gauche du carousel 
 left.addEventListener("click", () => {
 	slidePosition--;
 	if (slidePosition < 0) {
@@ -52,6 +54,7 @@ left.addEventListener("click", () => {
 	console.log("Click on left arrow");
 });
 
+// Comportement de la flèche droite du carousel 
 right.addEventListener("click", () => {
 	slidePosition++;
 	if (slidePosition > slides.length-1) {
@@ -62,11 +65,16 @@ right.addEventListener("click", () => {
 	console.log("Click on right arrow");
 });
 
+// fonction pour gérer le changement d'image d'une slide et son texte
 function changeSlide () {
 	img.src = slides[slidePosition].image;
 	txt.innerHTML = slides[slidePosition].tagLine;
 };
 
+// Creation de variable dots pour sélectionner la totalité des elements du DOM ayant la classe .dot
+const dots = document.querySelectorAll(".dot");
+
+// fonction pour repostionner le dot sur le carousel à chaque changement de slide
 function dotSelected () {
 	console.log(dots);
 	dots.forEach ((dot, i) => {
