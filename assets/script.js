@@ -31,7 +31,6 @@ let slidePosition = 0;
 for (let i = 0; i < slides.length; i++) {
 	const dot = document.createElement("div")
 	dot.addEventListener("click", () => {
-		console.log(i);
 		slidePosition = i;
 		changeSlide();
 		dotSelected();
@@ -51,7 +50,6 @@ left.addEventListener("click", () => {
 	} 
 	changeSlide();
 	dotSelected ();
-	console.log("Click on left arrow");
 });
 
 // Comportement de la flèche droite du carousel 
@@ -62,7 +60,6 @@ right.addEventListener("click", () => {
 	}
 	changeSlide();
 	dotSelected ();
-	console.log("Click on right arrow");
 });
 
 // fonction pour gérer le changement d'image d'une slide et son texte
@@ -76,7 +73,6 @@ const dots = document.querySelectorAll(".dot");
 
 // fonction pour repostionner le dot sur le carousel à chaque changement de slide
 function dotSelected () {
-	console.log(dots);
 	dots.forEach ((dot, i) => {
 		if (dot.classList.contains('dot_selected')) {
 			dot.classList.remove('dot_selected');
